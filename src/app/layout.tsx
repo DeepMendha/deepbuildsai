@@ -13,14 +13,21 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL 
+  ? `https://${process.env.NEXT_PUBLIC_SITE_URL}` 
+  : process.env.VERCEL_PROJECT_PRODUCTION_URL 
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : `http://localhost:3000`;
+
 export const metadata: Metadata = {
+  metadataBase: new URL(baseUrl),
   title: "Deep Mendha | AI/ML Portfolio & Notes",
   description: "Knowledge-first AI/ML blog and portfolio system documenting real-world problem solving.",
   openGraph: {
-    title: "Deep Mendha",
+    title: "Deep Mendha | AI/ML",
     description: "AI/ML developer documenting logic, failures, and system architecture.",
-    url: "https://deepmendha.example.com", // Replace with final deployed domain
-    siteName: "Deep Mendha Portfolio",
+    url: baseUrl,
+    siteName: "Deep Mendha",
     locale: "en_US",
     type: "website",
   },
