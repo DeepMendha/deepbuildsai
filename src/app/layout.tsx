@@ -65,7 +65,8 @@ export default function RootLayout({
         </main>
 
         <footer className="w-full py-8 border-t border-zinc-200 dark:border-zinc-800 text-sm text-center text-zinc-500">
-          <p>© {new Date().getFullYear()} Deep Mendha. Built with Next.js.</p>
+          <p>© {new Date().getFullYear()} Deep Mendha. All rights reserved.</p>
+          <p className="mt-1 text-xs text-zinc-400">Content may not be reproduced without permission.</p>
         </footer>
       </body>
     </html>
