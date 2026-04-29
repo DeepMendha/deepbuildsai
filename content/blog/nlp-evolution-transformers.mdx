@@ -1,0 +1,270 @@
+---
+
+title: "Why NLP Failed for Years — And Why Transformers Finally Worked"
+summary: "NLP didn’t suddenly improve. It failed repeatedly—until transformers changed how machines read language."
+date: "2026-04-22"
+tags: ["NLP", "Transformers", "Machine Learning"]
+-------------------------------------------------
+
+## The uncomfortable truth about NLP
+
+If you’ve ever worked with text data, you’ve probably had this moment.
+
+You build something simple.
+Maybe keyword matching. Maybe TF-IDF.
+
+It works… at first.
+
+Then you try it on real data.
+
+And suddenly:
+
+* “Python” matches a snake
+* “ML experience” matches a blog reader
+* “Managed team” matches someone who attended meetings
+
+That’s when it hits you:
+
+> Machines don’t misunderstand language.
+> They never understood it to begin with.
+
+---
+
+## The first mistake we made
+
+Early NLP was built on a very confident assumption:
+
+“If we define enough rules, we can understand language.”
+
+And honestly, it sounds reasonable.
+
+You write patterns.
+You detect keywords.
+You build logic.
+
+Something like:
+
+```python
+if "Python" in resume:
+    skills.append("Python")
+```
+
+It works beautifully in demos.
+
+Then reality shows up.
+
+Language isn’t consistent.
+People don’t write the same way twice.
+And meaning doesn’t live in words—it lives in context.
+
+That’s where rule-based systems quietly collapse.
+
+---
+
+<ArchitectureDiagramPlaceholder title="Rule-Based NLP: Where Logic Starts Breaking" />
+
+---
+
+## So we moved to statistics
+
+The next phase felt smarter.
+
+Instead of writing rules, we let data speak:
+
+* Count words
+* Measure importance
+* Compare documents
+
+This is where TF-IDF became popular.
+
+And to be fair—it *was* a big improvement.
+
+Now “rare words” mattered more.
+Now documents could be compared.
+
+But something still felt… off.
+
+Two resumes could say the same thing in completely different ways—and the system would treat them as unrelated.
+
+Because it wasn’t understanding language.
+
+It was just counting it.
+
+---
+
+## The subtle failure nobody noticed
+
+Statistical NLP didn’t fail loudly.
+
+It failed quietly.
+
+It gave:
+
+* decent results
+* acceptable accuracy
+* usable systems
+
+Which is actually more dangerous.
+
+Because it creates the illusion that things are working.
+
+Until you try to scale it.
+
+Or generalize it.
+
+Or apply it to something messy—like resumes.
+
+---
+
+## Then came deep learning
+
+This is where things started to feel different.
+
+Models began learning patterns:
+
+* Word2Vec
+* GloVe
+* RNNs
+* LSTMs
+
+For the first time, “king” and “queen” had a relationship.
+
+That was new.
+
+That was exciting.
+
+But under the surface, the same problem existed.
+
+These models still read text like a human with memory issues:
+
+* One word at a time
+* Forgetting what came earlier
+
+Long sentences?
+Context shifts?
+
+They struggled.
+
+---
+
+## The real shift wasn’t accuracy—it was perspective
+
+Transformers didn’t just improve performance.
+
+They changed how the problem was approached.
+
+Instead of reading text sequentially, they asked:
+
+“What if we look at everything at once?”
+
+That’s what attention does.
+
+Every word looks at every other word—and decides what matters.
+
+Not based on position.
+Not based on frequency.
+
+But based on **context**.
+
+---
+
+<ArchitectureDiagramPlaceholder title="Transformer Model: Context Through Attention" />
+
+---
+
+## Why this actually worked
+
+Before transformers, models tried to *remember* context.
+
+Transformers don’t remember.
+
+They **compute relevance dynamically**.
+
+That’s a big difference.
+
+It means:
+
+* “Python” can mean programming or snake → based on context
+* “Managed team” can be interpreted differently → based on surrounding words
+
+This is the first time NLP started behaving less like a script—and more like interpretation.
+
+---
+
+## The irony most people miss
+
+Here’s something interesting.
+
+Modern models like BERT still end up learning:
+
+* parts of speech
+* sentence structure
+* entity relationships
+
+The same things classical NLP tried to do manually.
+
+We didn’t remove the pipeline.
+
+We just stopped writing it ourselves.
+
+---
+
+## Where we are now
+
+Today, we have models that can:
+
+* write essays
+* summarize documents
+* answer questions
+
+And it feels like we solved NLP.
+
+But if you’ve worked with them—you know that’s not true.
+
+They:
+
+* hallucinate
+* overgeneralize
+* sometimes sound confident and wrong
+
+So no—this isn’t “solved”.
+
+It’s just… usable.
+
+---
+
+## Why this matters (especially for our project)
+
+If you’re building something like a Resume Analyzer, this history matters more than it seems.
+
+Because you now have choices:
+
+* You can use rules → predictable but fragile
+* You can use statistical methods → efficient but shallow
+* You can use transformers → powerful but heavy
+
+And the real skill?
+
+It’s not choosing one.
+
+It’s knowing where each one breaks.
+
+---
+
+## Final thought
+
+NLP didn’t evolve because we got smarter.
+
+It evolved because each approach failed in a different way.
+
+Rules failed loudly.
+Statistics failed quietly.
+Deep learning struggled silently.
+
+Transformers?
+
+They didn’t fix everything.
+
+They just failed less.
+
+And right now—that’s enough.
